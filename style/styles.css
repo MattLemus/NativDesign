@@ -1,6 +1,11 @@
 /* --- Fuentes (Opcional, pero recomendado) --- */
 /* Importamos fuentes de Google que se parecen a la imagen */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&display=swap');
+html, body {
+    width: 100%;
+    overflow-x: hidden !important; 
+    position: relative;
+}
 /* * 'Playfair Display' es para el título "Nativ Design" (serif)
  * 'Montserrat' es para todo lo demás (sans-serif)
 */
@@ -775,4 +780,5 @@ nav a.logo img {
         padding: 0 15px;     /* Evita que el texto toque los bordes de la pantalla */
         margin-top: -80px; /* El signo menos lo "jala" hacia arriba */
     }
+
 }
