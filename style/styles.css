@@ -1,0 +1,778 @@
+/* --- Fuentes (Opcional, pero recomendado) --- */
+/* Importamos fuentes de Google que se parecen a la imagen */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&display=swap');
+/* * 'Playfair Display' es para el título "Nativ Design" (serif)
+ * 'Montserrat' es para todo lo demás (sans-serif)
+*/
+/* --- Estilos Globales (Modificación) --- */
+body {
+    /* Ahora usamos la nueva fuente */
+    font-family: 'Montserrat', sans-serif; 
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+                                             /* --- 1. El Contenedor del Hero --- */
+                                                     /*(HERO SECTION)*/
+.hero-section {
+    /* Esto es clave: 100vh significa 100% de la 
+       altura de la pantalla (Viewport Height) */
+    height: 100vh;
+    /* --- La Magia del Fondo --- */
+    background-image: url('../assets/Hero-section.png');
+    background-size: cover;     /* Cubre todo el espacio, sin deformar */
+    background-position: center; /* Centra la imagen */
+    /* --- Centrado Vertical --- */
+    /* Usamos Flexbox para apilar la NAV y el CONTENIDO */
+    display: flex;
+    flex-direction: column; /* Apila los elementos (nav arriba, content abajo) */
+}
+                                                /* --- 2. La Navegación --- */
+                                                       /*(HERO SECTION)*/
+nav {
+    display: flex;         /* ¡La magia de Flexbox! Pone todo en fila */
+    justify-content: center; /* Centra los elementos en la fila */
+    align-items: center;     /* Alinea verticalmente (por si el logo es grande) */
+    padding: 20px;
+    width: 100%;
+}
+nav a {
+    color: #D9534F; /* Un color rojizo similar al de la imagen */
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase; /* Pone el texto en MAYÚSCULAS */
+    margin: 0 20px; /* Espacio a los lados de cada enlace */
+    font-size: 14px;
+}
+nav a.logo img {
+    height: 80px; /* Ajusta el tamaño de tu logo */
+    /* Quita el margen vertical para que no empuje a los otros enlaces */
+    vertical-align: middle; 
+}
+                                             /* --- 3. El Contenido Central --- */
+                                                     /*(HERO SECTION)*/
+.hero-content {
+    /* Este es el truco para centrarlo */
+    flex-grow: 1; /* Hace que este div ocupe todo el espacio sobrante */
+    /* Lo convertimos en un contenedor flex... otra vez */
+    display: flex;
+    flex-direction: column;   /* Apilamos su contenido (título, subtítulo, botón) */
+    justify-content: center;  /* Lo centramos verticalmente */
+    align-items: center;      /* Lo centramos horizontalmente */
+    padding: 20px;
+    padding-bottom: 150px; /* Espacio por si la pantalla es muy pequeña */
+}
+.hero-title {
+    /* Usamos la fuente serif elegante */   
+    font-family: 'Playfair Display', serif; 
+    font-size: 4rem; /* 5 veces el tamaño de fuente normal (es grande) */
+    color: #556B2F;  /* Verde olivo oscuro */
+    text-align: center;
+    margin: 0; /* Quitamos márgenes para controlar el espacio */
+    max-width: 600px;
+}
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #D9534F; /* Mismo rojo que la navegación */
+    text-transform: uppercase;
+    margin-top: 10px; /* Pequeño espacio debajo del título */
+    letter-spacing: 1px; /* Un poco de espacio entre letras */
+    max-width: 500px;
+    text-align: center;
+}
+.hero-cta {
+    background-color: #556B2F; /* Mismo verde del título */
+    color: #ffffff;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 30px; /* Bordes muy redondeados */
+    margin-top: 30px; /* Espacio para separarlo */
+    /* Efecto sutil al pasar el mouse */
+    transition: background-color 0.3s ease;
+}
+.hero-cta:hover {
+    background-color: #6B8E23; /* Un verde un poco más claro */
+}
+                                    /*4. GARANTIAS DE NATIV, ENVIO, PEDIDO, PAGO */
+                                                /*(HERO SECTION)*/
+.features-section {
+    display: flex; /* La magia: pone las cajas en fila */
+    justify-content: space-around; /* Reparte el espacio entre ellas */
+    padding: 30px 20px; /* 50px de espacio arriba/abajo */
+    background-color: #ffffff; /* Fondo blanco */
+    border-bottom: 1px solid #f0f0f0; /* Línea sutil de separación */
+}
+.feature-item {
+    text-align: center; /* Centra la imagen y los textos */
+    max-width: 150px; /* Límite de ancho para cada columna */
+}
+.feature-item img {
+    height: 100px; /* Ajusta el tamaño de tus iconos */
+    margin-bottom: 5px; /* Espacio entre el icono y el título */
+}
+.feature-item h3 {
+    color: #556B2F; /* Verde olivo (mismo del hero) */
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin: 10px 0 5px 0; /* Espaciado del título */
+}
+.feature-item p {
+    color: #777; /* Gris para la descripción */
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin: 0;
+}
+                                                        /* FOOTER */
+                                                     /*(HERO SECTION)*/
+footer {
+    background-color: #f8f8f8; /* Gris claro de fondo */
+    color: #555; /* Color de texto principal del footer */
+    border-top: 5px solid #E6A8B8; /* Franja rosa superior */
+}
+.footer-main {
+    display: flex;           /* ¡La magia! Crea las 3 columnas */
+    justify-content: space-between; /* Reparte el espacio */
+    flex-wrap: wrap; /* Permite que se apilen en móviles */
+    padding: 50px 5%; /* 5% de margen a los lados */
+}
+.footer-column {
+    flex-basis: 20%; /* Cada columna ocupa ~30% */
+    min-width: 250px; /* Ancho mínimo antes de apilarse */
+    padding: 10px;
+}
+.footer-title {
+    font-family: 'Playfair Display', serif; /* Fuente elegante */
+    color: #D9534F; /* Rosa/rojo del hero */
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #E6A8B8; /* Línea rosa debajo del título */
+    display: inline-block; /* Ajusta la línea al texto */
+}
+/* --- Columna: Links --- */
+.footer-links {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0;
+    margin: 0;
+}
+.footer-links li {
+    margin-bottom: 40px;
+}
+.footer-links a {
+    text-decoration: none;
+    color: #555;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #E6A8B8; /* Subrayado rosa sutil */
+    transition: color 0.3s;
+}
+.footer-links a:hover {
+    color: #D9534F;
+}
+/* --- Columna: Iconos Sociales --- */
+.social-icons {
+    margin-top: 80px;
+}
+.social-icons {
+    margin-top: 20px;
+    display: flex; /* Para que los iconos estén en fila */
+    gap: 30px; /* Espacio entre los iconos */
+    justify-content: flex-start; /* Alinea a la izquierda (o center si quieres) */
+}
+.social-icons img { /* Nuevo selector para las imágenes directamente */
+    height: 50px; /* Ajusta este tamaño según necesites */
+    width: auto; /* Mantiene la proporción */
+    transition: transform 0.2s ease; /* Pequeña animación al pasar el ratón */
+}
+.social-icons img:hover {
+    transform: translateY(-5px); /* Sube un poco al pasar el ratón */
+}
+/* --- Barra Inferior --- */
+.footer-bottom {
+    background-color: #8FBC8F; /* Verde claro/musgo */
+    padding: 15px;
+    text-align: center;
+    color: #333; /* Texto oscuro */
+    font-size: 0.9rem;
+}
+.footer-bottom p {
+    margin: 0;
+}
+.footer-bottom a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+/* --- Mejorar texto --- */
+.footer-column:first-child p {
+    text-align: justify; 
+    line-height: 1.4; 
+}
+                                         /* --- Productos destacados --- */
+                                                /*(HERO SECTION)*/
+#catalogo {
+    padding: 1px 5%; /* 60px de espacio arriba/abajo, 5% a los lados */
+    text-align: center; /* Centra el título "Nuestro Catálogo" */
+    background-color: #ffffff; /* Fondo blanco para esta sección */
+}
+#catalogo h2 {
+    font-family: 'Playfair Display', serif; /* Fuente elegante */
+    font-size: 2.5rem; /* Tamaño grande */
+    color: #556B2F; /* Verde olivo, como el hero-title */
+    margin-bottom: 70px; /* Espacio debajo del título */
+}
+/* El contenedor de la galería (la "parrilla") */
+.catalogo-grid {
+    display: flex; /* ¡La magia de Flexbox! */
+    flex-wrap: wrap; /* Permite que las tarjetas bajen si no caben */
+    justify-content: center; /* Centra las tarjetas en la fila */
+    gap: 30px; /* El espacio (vertical y horizontal) entre cada tarjeta */
+}
+/* La tarjeta individual de cada producto */
+.producto-card {
+    background-color: #fff;
+    border: 1px solid #f0f0f0; /* Borde muy sutil */
+    border-radius: 10px; /* Bordes redondeados */
+    
+    /* Sombra suave para darle profundidad */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    
+    width: 255px; /* Ancho fijo para cada tarjeta */
+    overflow: hidden; /* Asegura que la imagen no se salga */
+    text-align: justify; /* Alinea el texto de la tarjeta a la izquierda */
+    
+    /* Animación sutil al pasar el mouse */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.producto-card:hover {
+    transform: translateY(-5px); /* Se levanta un poquito */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+}
+/* La imagen del producto */
+.producto-card img {
+    width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+    height: 200px; /* Altura fija para todas las imágenes */
+    object-fit: cover;
+}
+/* Contenedor del texto (para padding) */
+.card-content {
+    padding: 20px;
+}
+/* Título del producto */
+.producto-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #D9534F; /* Rojo/Rosa */
+    margin-top: 0; /* Elimina el margen superior predeterminado */
+    margin-bottom: 10px; /* Pequeño espacio debajo del título */
+    padding: 0 15px; /* Añade un poco de padding lateral para que no se pegue */
+}
+/* Descripción del producto */
+.producto-card p {
+    font-size: 1.1rem;
+    color: #777;
+    line-height: 1.1 ; /* Espacio entre líneas */
+    margin-bottom: 25px; /* Espacio antes del botón */
+    padding: 0 15px; /* Añade un poco de padding lateral */
+}
+/* El botón de WhatsApp */
+.boton-whatsapp {
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+    border: 2px solid #556B2F; /* Borde del color verde principal */
+    color: #556B2F; /* Texto del mismo color */
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    margin-left: 20px; /* Añade un poco de padding lateral */
+    margin-right: 15px;
+    border-radius: 20px; /* Bordes redondeados */
+}
+.boton-whatsapp:hover {
+    background-color: #556B2F; /* Se rellena al pasar el mouse */
+    color: #ffffff; /* Texto se vuelve blanco */
+}
+                                         /* --- Temporada Navideña --- */  
+                                               /*(HERO SECTION)*/
+#temporadas {
+    display: flex;
+    flex-direction: row; /* <-- La clave: Apila los divs (arriba/abajo) */
+    width: 100%;
+    background-color: #ffffff; /* Fondo blanco por defecto */
+    overflow: hidden;
+    margin-top: 70px; /*espacio */
+}
+/* --- Bloque de Texto (Arriba) --- */
+.temporadas-content {
+    /* Ya no necesita flex-basis, ocupará el ancho */
+    
+    /* Centrado del contenido */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* <-- Centra los elementos */
+    text-align: center;  /* <-- Centra el texto (párrafo) */
+    padding: 40px 5%; /* Espaciado interno */
+}
+.temporadas-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #D9534F; /* El color rojo/rosa de tu marca */
+    margin: 0;
+}
+.temporadas-content p {
+    font-size: 1rem;
+    color: #777;
+    line-height: 1.7;
+    margin: 40px 0 40px 0; /* Espacio arriba y abajo */
+    max-width: 600px; /* Evita que el texto sea demasiado ancho */
+}
+/* El botón "fantasma" (como en tu imagen) */
+.boton-coleccion {
+    background-color: transparent;
+    border: 2px solid #556B2F; /* Borde del color verde principal */
+    color: #556B2F; /* Texto del mismo color */
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+.boton-coleccion:hover {
+    background-color: #556B2F; /* Se rellena al pasar el mouse */
+    color: #ffffff; /* Texto se vuelve blanco */
+}
+                                     /* --- Bloque de Imagen (Abajo) --- */
+
+                                           /*(HERO SECTION)*/
+.temporadas-image {
+    /* Ya no necesita flex-basis, ocupará el ancho */
+    width: 100%;
+    background-image: url('../assets/tempo-nav.jpg');
+    background-size: cover; 
+    background-position: center; 
+    /* Ajusta la altura de la imagen */
+    min-height: 650px; 
+}
+                                  /* --- 6. Menú Desplegable (Dropdown) --- */
+                                               /*(HERO SECTION)*/
+/* El contenedor principal (necesario para posicionar el menú) */
+.dropdown {
+    position: relative; /* Permite que el menú "absoluto" se posicione relativo a esto */
+    display: inline-block; /* Se comporta como texto en la línea */
+}
+/* El botón "PERSONALIZADOS" */
+.dropbtn {
+    /* ¡Copiamos los estilos exactos de tus otros enlaces nav a! */
+    color: #D9534F;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 20px;
+    font-size: 14px;
+    padding: 0; /* Aseguramos que no tenga padding extra */
+    border: none;
+    background: none;
+    cursor: pointer; /* Para que parezca un enlace */
+}
+/*El contenido del menú (la caja que se oculta) */
+.dropdown-content {
+    display: none; /* Oculto por defecto */
+    position: absolute; /* Flota sobre el resto de la página */
+    background-color: #EEE3C8; /* Color de fondo */
+    min-width: 200px; /* Ancho mínimo */
+    box-shadow: 0px 8px 16px 0px rgba(158, 102, 102, 0.1); /* Sombra suave */
+    z-index: 1; /* Se asegura de estar por encima de todo */
+    border-radius: 5px; /* Bordes redondeados */
+}
+/*Los enlaces DENTRO del menú */
+.dropdown-content a {
+    /* Reseteamos los estilos de "nav a" */
+    color: #333; /* Color de texto normal */
+    font-weight: normal; /* Quitamos el bold */
+    text-transform: none; /* Quitamos las mayúsculas */
+    font-size: 14px;
+    padding: 12px 16px; /* Espaciado interno */
+    text-decoration: none;
+    display: block; /* Hacemos que ocupen todo el ancho para apilarse */
+    text-align: left; /* Alineamos a la izquierda */
+    margin: 0; /* Quitamos el margen */
+}
+/*El efecto hover para los enlaces de DENTRO */
+.dropdown-content a:hover {
+    background-color: #ffffff; /* Un gris claro al pasar el mouse */
+}
+/*¡LA MAGIA! Muestra el menú cuando se pasa el mouse sobre .dropdown */
+.dropdown:hover .dropdown-content {
+    display: block; /* Lo hace visible */
+}
+/* Opcional: Cambia el color del botón principal al hacer hover */
+.dropdown:hover .dropbtn {
+    color: #556B2F; /* Verde, para coincidir con tu marca */
+}
+                                /* --- 7. Ajustes para Hero de Páginas Internas --- */
+
+                                             /*(PERSONALIZADOS)*/
+
+/* Cuando la sección hero tiene la clase 'page-hero' (para páginas como Personalizados.html) */
+.hero-section.page-hero {
+    height: 50vh; /* Hazla más pequeña, por ejemplo, 60% de la altura de la pantalla */
+    min-height: 400px; /* Asegura un mínimo de altura para que no sea diminuta */
+}
+/* También necesitamos ajustar el padding del contenido del hero para que esté más arriba */
+.hero-section.page-hero .hero-content {
+    padding-bottom: 20px; /* Menos padding abajo, lo que "sube" el contenido */
+}
+                            /* --- 8. Contenido de Página Personalizados --- */
+
+                                         /*(PERSONALIZADOS)*/
+
+/* Efecto de scroll suave al hacer clic en los enlaces */
+html {
+    scroll-behavior: smooth;
+}
+
+/* El contenedor principal de la página */
+#personalizados-page-content, #categorias-page-content {
+    padding: 30px 5%; /* 60px de espacio arriba/abajo, 5% a los lados */
+    text-align: center;
+    background-color: #fcfcfc;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* El contenedor de cada sub-sección (Jarros, Cojines, etc.) */
+.sub-seccion-personalizados {
+    margin-bottom: 50px; /* Espacio entre cada categoría */
+}
+
+/* El título de cada sub-sección (H3) - ESTE ES EL QUE QUERÍAS */
+.sub-seccion-titulo {
+    font-family: 'Playfair Display', serif; /* Fuente elegante */
+    font-size: 2.5rem; /* Más grande e importante */
+    color: #556B2F; /* Color rosa/rojo de tu marca */
+    
+    /* Truco para que la línea se ajuste al texto */
+    display: inline-block; 
+    padding-bottom: 10px;
+    
+    margin-bottom: 50px; /* Más espacio antes de las tarjetas */
+}
+                             /* --- 10. Botón "Ver más" genérico --- */
+                                     /*(HERO SECTION)*/
+.boton-ver-mas {
+    /* El estilo que te gusta */
+    background-color: transparent;
+    border: 2px solid #556B2F; /* Borde del color verde principal */
+    color: #556B2F; /* Texto del mismo color */
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+
+    display: inline-block; /* Para que el margin-top funcione */
+    margin-top: 60px; /* Espacio para separarlo de las tarjetas */
+}
+.boton-ver-mas:hover {
+    background-color: #556B2F; /* Se rellena al pasar el mouse */
+    color: #ffffff; /* Texto se vuelve blanco */
+}
+                            /* --- 11. Sección Destacados de Cumpleaños --- */
+                                      /*(HERO SECTION)*/
+#cumpleanos-destacados {
+    padding: 30px 5%; /* Espaciado arriba/abajo y a los lados */
+    text-align: center; 
+    background-color: #f8f8f8; /* Un fondo ligeramente diferente al blanco */
+    border-top: 1px solid #f0f0f0; /* Separador sutil */
+    margin-top: 10px; /* Espacio con la sección de arriba */
+}
+
+#cumpleanos-destacados h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #556B2F; /* El color verde de tus títulos principales */
+    margin-bottom: 70px; /* Espacio debajo del título y antes de los productos */
+}
+                        /* --- 11. Sección Destacados de Amor/Aniversario --- */
+                                     /*(HERO SECTION)*/
+#amor-aniversario-destacados {
+    padding: 30px 5%; /* Espaciado arriba/abajo y a los lados */
+    text-align: center; /* Centra el título */
+    background-color: #ffffff; /* Fondo blanco para alternar color */
+    border-top: 1px solid #f0f0f0; /* Separador sutil */
+    margin-top: 10px; /* Espacio con la sección de arriba */
+}
+
+#amor-aniversario-destacados h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #556B2F; /* El color verde de tus títulos principales */
+    margin-bottom: 70px; /* Espacio debajo del título y antes de los productos */
+}
+                                /* --- 12. Estilos Página Navidad --- */
+                                        /*(Navidad)*/
+
+/* Fondo para el hero de la página de Navidad */
+.hero-section.navidad-hero {
+    /* Re-usamos la imagen de la promo de navidad */
+    background-image: url('../assets/Hero-section.png'); 
+}
+
+/* Agrupamos el estilo del contenedor de página */
+#personalizados-page-content,
+#categorias-page-content,
+#navidad-page-content { 
+    padding: 60px 5%; 
+    text-align: center;
+    background-color: #fcfcfc;
+    border-top: 1px solid #f0f0f0;
+}
+                               /* --- 13. Estilos Página Decoraciones --- */
+                                       /*(Decoraciones)*/
+
+/* Fondo para el hero de la página de Decoraciones */
+.hero-section.decoraciones-hero {
+    /* DEBES CREAR UNA IMAGEN DE FONDO PARA DECORACIONES */
+    /* Y guardarla en /assets/ como 'hero-decoraciones.jpg' */
+    background-image: url('../assets/Hero-section.png'); 
+}
+
+/* Agrupamos el estilo del contenedor de página */
+#personalizados-page-content,
+#categorias-page-content,
+#navidad-page-content,
+#decoraciones-page-content { /* <-- Añadido */
+    padding: 60px 5%; 
+    text-align: center;
+    background-color: #fcfcfc;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* --- NUEVA GALERÍA DE 2 COLUMNAS --- */
+.catalogo-grid-2-col {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Espacio entre tarjetas */
+    
+    /* Centramos el contenedor de la galería */
+    max-width: 900px; /* Ancho máximo para 2 tarjetas */
+    margin: 0 auto;
+}
+
+/* Hacemos que CUALQUIER .producto-card 
+  DENTRO de .catalogo-grid-2-col sea más ancha.
+*/
+.catalogo-grid-2-col .producto-card {
+    width: 400px; /* Ancho de tarjeta más grande */
+}
+
+/* (Opcional) Hacemos la imagen más alta para tarjetas más grandes */
+.catalogo-grid-2-col .producto-card img {
+    height: 300px;
+}
+                                             /* --- 14. Nota Aclaratoria de Productos --- */
+                                            /*Hero Section*/
+.nota-personalizados {
+    /* Un verde más sólido y visible */
+    background-color: #E6F0E6; /* Un verde pálido, pero sólido */
+    border: 1px solid #8FBC8F; /* El color verde de tu footer, pero como borde */
+    
+    max-width: 475px; /* Ancho máximo */
+    margin: -30px auto 50px auto; /* Lo sube y centra */
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+.nota-personalizados p {
+    margin: 0; /* Quita el margen por defecto del párrafo */
+    color: #232323; /* Color de texto oscuro para buena lectura */
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+                                           /* --- 15. ESTILOS RESPONSIVOS (MÓVIL) --- */
+
+                                 /* --- A. Estilos del Menú Hamburguesa (Oculto en Escritorio) --- */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    position: relative; 
+}
+.nav-links {
+    display: flex;
+    align-items: center;
+    flex: 1; 
+}
+#nav-left {
+    justify-content: flex-end;
+    padding-left: 20px;
+}
+#nav-right {
+    justify-content: flex-start;
+    padding-right: 80px;
+}
+.nav-links a {
+    color: #D9534F;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 20px;
+    font-size: 14px;
+}
+nav a.logo img {
+    height: 60px;
+    vertical-align: middle;
+    margin: 0 20px; 
+}
+
+/* --- B. Estilos del Menú Hamburguesa (Oculto en Escritorio) --- */
+.hamburger-menu {
+    display: none; /* Oculto en escritorio */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.mobile-nav {
+    display: none; /* Oculto en escritorio */
+}
+
+
+/* --- C. LA MEDIA QUERY (Reglas para Móvil) --- */
+
+@media (max-width: 768px) {
+
+    /* 1. Oculta los enlaces de escritorio */
+    .nav-links {
+        display: none;
+    }
+
+    /* 2. Posiciona el logo y el icono */
+    nav {
+        justify-content: center; 
+        padding: 15px 20px;
+    }
+    nav a.logo img {
+        height: 50px;
+        margin: 0;
+    }
+
+    /* 3. Muestra y estiliza el icono hamburguesa */
+    .hamburger-menu {
+        display: block;
+        position: absolute; 
+        top: 30px;
+        left: 20px; 
+        width: 30px;
+        height: 25px;
+        z-index: 101;
+        cursor: pointer;
+        background: none; /* Asegura que no tenga fondo */
+        border: none; /* Asegura que no tenga borde */
+    }
+    .hamburger-menu span,
+    .hamburger-menu span::before,
+    .hamburger-menu span::after {
+        content: '';
+        position: absolute;
+        left: 0;                    /* ← Alineación perfecta */
+        width: 100%;
+        height: 3px;
+        background-color: #556B2F;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+        /* Línea central */
+    .hamburger-menu span {
+        top: 11px;                  /* (25px - 3px) / 2 */
+    }
+
+    /* Línea superior */
+    .hamburger-menu span::before {
+        top: -11px;
+    }
+
+    /* Línea inferior */
+    .hamburger-menu span::after {
+        top: 11px;
+    }
+    /* 4. Animación de la X (cruz) - Ahora usa la clase .is-active */
+    .hamburger-menu.is-active span {
+        background-color: transparent;
+    }
+    .hamburger-menu.is-active span::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+    .hamburger-menu.is-active span::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+
+    /* 5. Estilo y activación del Menú Móvil - Ahora usa la clase .is-active */
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.98);
+
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 100px;
+
+        align-items: flex-start;
+        padding-left: 40px;
+
+        z-index: 100;
+        
+        display: none; /* Oculto por defecto */
+    }
+    
+    /* ¡LA MAGIA! Muestra el menú móvil */
+    .mobile-nav.is-active {
+        display: flex;
+    }
+
+    .mobile-nav a {
+        text-decoration: none;
+        color: #556B2F;
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: 15px;
+        text-transform: uppercase;
+    }
+
+    /* 6. Arreglos Generales (Los mismos de la vez anterior) */
+    .hero-title { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .features-section { flex-direction: column; align-items: center; }
+    .feature-item { margin-bottom: 30px; }
+    .producto-card { width: 90%; max-width: 350px; }
+    .catalogo-grid-2-col .producto-card { width: 90%; max-width: 350px; }
+    .footer-main { flex-direction: column; align-items: center; text-align: center; }
+    .footer-column { flex-basis: 100%; }
+    .social-icons { justify-content: center; margin-top: 20px; }
+    .hero-content {
+        align-items: center; /* Centra el botón */
+        text-align: center;  /* Centra el texto */
+        padding: 0 15px;     /* Evita que el texto toque los bordes de la pantalla */
+        margin-top: -80px; /* El signo menos lo "jala" hacia arriba */
+    }
+}
