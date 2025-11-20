@@ -1,15 +1,14 @@
 /* --- Fuentes (Opcional, pero recomendado) --- */
 /* Importamos fuentes de Google que se parecen a la imagen */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&display=swap');
-html, body {
-    width: 100%;
-    overflow-x: hidden !important; 
-    position: relative;
-}
 /* * 'Playfair Display' es para el título "Nativ Design" (serif)
  * 'Montserrat' es para todo lo demás (sans-serif)
-*/
 /* --- Estilos Globales (Modificación) --- */
+html, body {
+    width: 100%;
+    overflow-x: hidden !important;
+    position: relative;
+}
 body {
     /* Ahora usamos la nueva fuente */
     font-family: 'Montserrat', sans-serif; 
@@ -658,7 +657,7 @@ nav a.logo img {
 }
 
 
-/* --- C. LA MEDIA QUERY (Reglas para Móvil) --- */
+                           /* --- C. LA MEDIA QUERY (Reglas para Móvil) --- */
 
 @media (max-width: 768px) {
 
@@ -669,14 +668,27 @@ nav a.logo img {
 
     /* 2. Posiciona el logo y el icono */
     nav {
-        justify-content: center; 
-        padding: 15px 20px;
+        position: relative;
+        height: 90px; 
+        width: 100%;
+        /* Quitamos padding y justify para evitar conflictos */
     }
-    nav a.logo img {
-        height: 50px;
+    
+    /* Esto manda el logo a la derecha a la fuerza */
+    nav a.logo {
+        position: absolute;
+        right: 30px; 
+        top: 30%;
+        transform: translateY(-50%);
         margin: 0;
+        z-index: 102;
     }
 
+    nav a.logo img {
+        height: 55px;
+        display: block;
+    }
+    
     /* 3. Muestra y estiliza el icono hamburguesa */
     .hamburger-menu {
         display: block;
@@ -780,5 +792,4 @@ nav a.logo img {
         padding: 0 15px;     /* Evita que el texto toque los bordes de la pantalla */
         margin-top: -80px; /* El signo menos lo "jala" hacia arriba */
     }
-
 }
