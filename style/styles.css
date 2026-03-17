@@ -31,6 +31,19 @@ body {
     /* Usamos Flexbox para apilar la NAV y el CONTENIDO */
     display: flex;
     flex-direction: column; /* Apila los elementos (nav arriba, content abajo) */
+    position: relative; /* Essential for absolute positioning of 3D canvas */
+    z-index: 1;
+}
+
+#canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Behind the content */
+    pointer-events: none; /* Let clicks pass through to links/buttons */
+    overflow: hidden;
 }
                                                 /* --- 2. La Navegación --- */
                                                        /*(HERO SECTION)*/
@@ -792,4 +805,287 @@ nav a.logo img {
         padding: 0 15px;     /* Evita que el texto toque los bordes de la pantalla */
         margin-top: -80px; /* El signo menos lo "jala" hacia arriba */
     }
+
+    .producto-detalle {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .producto-detalle-img-container {
+        max-width: 100%;
+        position: static;
+    }
+
+    .producto-detalle-img-container img {
+        max-height: 450px;
+        border-radius: 12px;
+    }
+
+    .producto-detalle-info {
+        text-align: center;
+        align-items: center;
+    }
+
+    .producto-detalle-info h1 {
+        font-size: 1.8rem;
+    }
+
+    .producto-separador {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .producto-detalle-nota {
+        text-align: left;
+    }
+
+    .boton-wa-grande {
+        width: 100%;
+        padding: 16px 30px;
+    }
+
+    .producto-acciones {
+        width: 100%;
+    }
+
+    .producto-breadcrumb {
+        padding: 15px 5% 0;
+    }
+
+    /* Animaciones en móvil: entrada desde abajo en vez de lados */
+    .anim-slide-left,
+    .anim-slide-right {
+        transform: translateY(30px);
+    }
+    .anim-visible {
+        transform: translateY(0);
+    }
+}
+
+/* --- Página Detalle de Producto --- */
+
+/* Header compacto sin hero */
+.producto-page-header {
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Breadcrumb */
+.producto-breadcrumb {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 5% 0;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.producto-breadcrumb a {
+    color: #556B2F;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.producto-breadcrumb a:hover {
+    color: #D9534F;
+}
+
+.breadcrumb-sep {
+    color: #ccc;
+}
+
+.breadcrumb-actual {
+    color: #999;
+}
+
+/* Sección principal */
+.producto-detalle-section {
+    padding: 40px 5% 80px;
+    background: linear-gradient(180deg, #ffffff 0%, #faf9f7 100%);
+}
+
+.producto-detalle {
+    display: flex;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+/* Imagen */
+.producto-detalle-img-container {
+    flex: 1.2;
+    max-width: 520px;
+    position: sticky;
+    top: 30px;
+}
+
+.producto-detalle-img-container img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(85, 107, 47, 0.12);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.5s ease;
+}
+
+.producto-detalle-img-container img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 16px 50px rgba(85, 107, 47, 0.2);
+}
+
+/* Info */
+.producto-detalle-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-top: 10px;
+}
+
+.producto-etiqueta {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #8FBC8F;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.producto-detalle-info h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    color: #333;
+    margin: 0 0 16px 0;
+    line-height: 1.15;
+}
+
+.producto-separador {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #D9534F, #E6A8B8);
+    border-radius: 2px;
+    margin-bottom: 24px;
+}
+
+.producto-descripcion {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+    margin: 0 0 28px 0;
+}
+
+/* Nota personalizable */
+.producto-detalle-nota {
+    background: linear-gradient(135deg, #f7f3ee 0%, #f0ebe4 100%);
+    border: none;
+    border-left: 4px solid #D9534F;
+    padding: 18px 22px;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.nota-icono {
+    color: #D9534F;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.producto-detalle-nota p {
+    margin: 0;
+    color: #555;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* Botón WhatsApp grande */
+.producto-acciones {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.boton-wa-grande {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #556B2F 0%, #6B8E23 100%);
+    color: #fff;
+    padding: 16px 40px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 15px rgba(85, 107, 47, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.boton-wa-grande::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transition: left 0.6s ease;
+}
+
+.boton-wa-grande:hover::before {
+    left: 100%;
+}
+
+.boton-wa-grande:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(85, 107, 47, 0.4);
+}
+
+.wa-icon {
+    display: flex;
+    align-items: center;
+}
+
+/* Animaciones de entrada */
+.anim-slide-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.anim-slide-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+}
+
+.anim-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Hacer las tarjetas de producto clickeables */
+.producto-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.producto-card-link:hover {
+    text-decoration: none;
+    color: inherit;
 }
